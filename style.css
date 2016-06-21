@@ -7,3 +7,8 @@ Description: Elementor Naked Starter Theme
 Version: 1.0
 License: GNU General Public License
 */
+
+html, body {
+  padding: 0 !important;
+  margin: 0 !important;
+}
