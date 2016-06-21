@@ -4,6 +4,7 @@
 		<meta charset="<?php bloginfo( 'charset' ); ?>" />
 		<meta name="viewport" content="width=device-width" />
 		<title><?php wp_title(); ?></title>
+		<link rel='stylesheet' id='style-css' href="https://necolas.github.io/normalize.css/latest/normalize.css"/>
 		<?php wp_head(); ?>
 	</head>
 
