@@ -13,7 +13,7 @@
 
 				<?php while ( have_posts() ) : the_post(); ?>
 
-              <?
+              <?php
               	// carrega o background da página
               	$fwb_background_image = get_field( "fwb_background_image" );
               ?>
