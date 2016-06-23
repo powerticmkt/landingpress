@@ -7,4 +7,5 @@
 		<link rel='stylesheet' id='style-css' href="https://necolas.github.io/normalize.css/latest/normalize.css"/>
 		<?php wp_head(); ?>
 	</head>
+
 <body <?php body_class(); ?>>
