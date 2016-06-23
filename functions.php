@@ -8,4 +8,7 @@ Description: Elementor Naked Starter Theme
 Version: 0.1.0
 License: GNU General Public License
 */
+
+include_once("custom-fields.php");
+
 ?>
