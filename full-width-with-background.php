@@ -9,25 +9,24 @@
  get_header();
 ?>
 
-<?
-	// carrega o background da página
-	$fwb_background_image = get_field( "fwb_background_image" );
-
-?>
-
-		<style>
-		html {
-		  background: url(<?php echo $fwb_background_image; ?>) no-repeat center center fixed;
-		  -webkit-background-size: cover;
-		  -moz-background-size: cover;
-		  -o-background-size: cover;
-		  background-size: cover;
-		}
-		</style>
-
 			<?php if ( have_posts() ) : ?>
 
 				<?php while ( have_posts() ) : the_post(); ?>
+
+              <?
+              	// carrega o background da página
+              	$fwb_background_image = get_field( "fwb_background_image" );
+              ?>
+
+          		<style>
+          		html {
+          		  background: url(<?php echo $fwb_background_image; ?>) no-repeat center center fixed;
+          		  -webkit-background-size: cover;
+          		  -moz-background-size: cover;
+          		  -o-background-size: cover;
+          		  background-size: cover;
+          		}
+          		</style>
 
 							<?php the_content(); ?>
 
