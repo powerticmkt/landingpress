@@ -3,7 +3,7 @@
  * Template Name: Full Width Background
  *
  * @package WordPress
- * @subpackage LandingPress Core
+ * @subpackage Elementor Naked
  * @since 0.1.0
  */
  get_header();
