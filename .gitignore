@@ -1,6 +1,12 @@
+#Capistrano
+config/deploy.rb
+config/deploy/production.rb
+config/deploy/staging.rb
+
 # Logs
 logs
 *.log
+log
 npm-debug.log*
 
 # Runtime data
