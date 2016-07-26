@@ -9,6 +9,12 @@ Version: 0.1.0
 License: GNU General Public License
 */
 
+
+function elementornaked_customize_register( $wp_customize ) {
+  // Do stuff with $wp_customize, the WP_Customize_Manager object.
+}
+add_action( 'customize_register', 'elementornaked_customize_register' );
+
 include_once("custom-fields.php");
 
 ?>
