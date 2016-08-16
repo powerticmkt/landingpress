@@ -9,10 +9,6 @@ Atualmente temos 2 modelos de página:
 
 Este template pode ser estilizado de acordo com suas necessidades. Se você quiser envie um pull request para nós ;)
 
-## Plugins necessários
-
-- https://wordpress.org/plugins/advanced-custom-fields/
-
 ## Compatibilidades
 
 Compatível com o modo Custom do Plugin DuracellTomi's Google Tag Manager for WordPress

@@ -15,6 +15,4 @@ function elementornaked_customize_register( $wp_customize ) {
 }
 add_action( 'customize_register', 'elementornaked_customize_register' );
 
-include_once("custom-fields.php");
-
 ?>
