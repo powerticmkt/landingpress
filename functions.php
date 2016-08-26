@@ -15,4 +15,16 @@ function elementornaked_customize_register( $wp_customize ) {
 }
 add_action( 'customize_register', 'elementornaked_customize_register' );
 
+
+function register_my_menus() {
+  register_nav_menus(
+    array(
+      'header-menu' => __( 'Header Menu' ),
+      'extra-menu' => __( 'Extra Menu' )
+    )
+  );
+}
+add_action( 'init', 'register_my_menus' );
+
+
 ?>
