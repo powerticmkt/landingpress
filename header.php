@@ -4,7 +4,6 @@
 		<meta charset="<?php bloginfo( 'charset' ); ?>" />
 		<meta name="viewport" content="width=device-width" />
 		<title><?php wp_title(); ?></title>
-
 			<style>
 			/* http://meyerweb.com/eric/tools/css/reset/
 			   v2.0 | 20110126
@@ -56,5 +55,7 @@
 			</style>
 
 		<?php wp_head(); ?>
+		
 	</head>
+
 <body <?php body_class(); ?> >
