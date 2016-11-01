@@ -1,13 +1,18 @@
 <?php
 /*
 Theme Name: Elementor Naked
-Theme URI: https://github.com/orangeweb/elementor-naked-wp-theme
-Author: Agencia Orangeweb
-Author URI: http://www.orangeweb.com.br
-Description: Elementor Naked Starter Theme
-Version: 0.7.1
+Theme URI: https://luizeof.com.br/elementor/utilizando-o-template-elementor-naked-para-landing-pages/
+Author: Luiz Eduardo
+Author URI: http://luizeof.com.br
+Description: Elementor Naked Theme
+Version: 0.8.1
 License: GNU General Public License
 */
+
+
+
+wp_enqueue_style( 'style', get_stylesheet_uri() );
+
 
 
 function register_my_menus() {
