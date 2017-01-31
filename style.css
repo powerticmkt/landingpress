@@ -5,7 +5,8 @@ Author: luizeof
 Author URI: https://luizeof.com.br
 Description: Elementor Naked Theme for Landing Pages
 Version: 0.9.1
-License: GNU General Public License
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: health-check
 */
 
@@ -51,7 +52,7 @@ body{}
 
   .bypostauthor{}
 
-  
+
 
   /* Text meant only for screen readers. */
   .screen-reader-text {
