@@ -1,11 +1,76 @@
 /*
 Theme Name: Elementor Naked
 Theme URI: https://luizeof.com.br/elementor/utilizando-o-template-elementor-naked-para-landing-pages/
-Author: Luiz Eduardo
-Author URI: http://luizeof.com.br
+Author: luizeof
+Author URI: https://luizeof.com.br
 Description: Elementor Naked Theme for Landing Pages
-Version: 0.9.0
+Version: 0.9.1
 License: GNU General Public License
+Text Domain: health-check
 */
 
+/* =Custom Styles
+-------------------------------------------------------------- */
+
 body{}
+
+  /* =WordPress Core
+  -------------------------------------------------------------- */
+  .alignnone {}
+
+  .aligncenter,
+  div.aligncenter {}
+
+  .alignright {}
+
+  .alignleft {}
+
+  a img.alignright {}
+
+  a img.alignnone {}
+
+  a img.alignleft {}
+
+  a img.aligncenter {}
+
+  .wp-caption {}
+
+  .wp-caption.alignnone {}
+
+  .wp-caption.alignleft {}
+
+  .wp-caption.alignright {}
+
+  .wp-caption img {}
+
+  .wp-caption p.wp-caption-text {}
+
+  /* Text meant only for screen readers. */
+  .screen-reader-text {
+  	clip: rect(1px, 1px, 1px, 1px);
+  	position: absolute !important;
+          white-space: nowrap;
+  	height: 1px;
+  	width: 1px;
+  	overflow: hidden;
+  }
+
+  .screen-reader-text:focus {
+  	background-color: #f1f1f1;
+  	border-radius: 3px;
+  	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  	clip: auto !important;
+  	color: #21759b;
+  	display: block;
+  	font-size: 14px;
+  	font-size: 0.875rem;
+  	font-weight: bold;
+  	height: auto;
+  	left: 5px;
+  	line-height: normal;
+  	padding: 15px 23px 14px;
+  	text-decoration: none;
+  	top: 5px;
+  	width: auto;
+  	z-index: 100000; /* Above WP toolbar. */
+  }

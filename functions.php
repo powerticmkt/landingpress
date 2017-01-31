@@ -9,13 +9,9 @@ Version: 0.8.1
 License: GNU General Public License
 */
 
-
-
 wp_enqueue_style( 'style', get_stylesheet_uri() );
 
-
-
-function register_my_menus() {
+function naked_menu_init() {
   register_nav_menus(
     array(
       'header-menu' => __( 'Header Menu' ),
@@ -23,23 +19,25 @@ function register_my_menus() {
     )
   );
 }
-add_action( 'init', 'register_my_menus' );
+add_action( 'init', 'naked_menu_init' );
 
 
 
-if (function_exists('register_sidebar')) {
-
-	register_sidebar(array(
-		'name' => 'Widgetized Area',
-		'id'   => 'widgetized-area',
-		'description'   => 'This is a widgetized area.',
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</div>',
-		'before_title'  => '<h4>',
-		'after_title'   => '</h4>'
-	));
+add_action( 'widgets_init', 'naked_widgets_init' );
+function naked_widgets_init() {
+    register_sidebar( array(
+        'name' => __( 'Main Sidebar', 'elementor-naked' ),
+        'id' => 'sidebar-1',
+        'description' => __( 'Widgets in this area will be shown on all posts and pages.', 'elementor-naked' ),
+        'before_widget' => '<li id="%1$s" class="widget %2$s">',
+  	    'after_widget'  => '</li>',
+  	    'before_title'  => '<h2 class="widgettitle">',
+  	    'after_title'   => '</h2>',
+    ) );
 
 }
+
+
 
 
 ?>
