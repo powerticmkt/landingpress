@@ -8,3 +8,7 @@
 	</head>
 
 	<body <?php body_class(); ?> >
+
+		<?php if ( ! isset( $content_width ) ) $content_width = 900; ?>
+
+		<div <?php post_class(); ?> >
