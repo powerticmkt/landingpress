@@ -45,6 +45,14 @@ body{}
 
   .wp-caption p.wp-caption-text {}
 
+  .sticky{}
+
+  .gallery-caption{}
+
+  .bypostauthor{}
+
+  
+
   /* Text meant only for screen readers. */
   .screen-reader-text {
   	clip: rect(1px, 1px, 1px, 1px);
