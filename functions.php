@@ -10,6 +10,7 @@ License: GNU General Public License
 */
 
 wp_enqueue_style( 'style', get_stylesheet_uri() );
+wp_enqueue_style( 'normalize', get_template_directory_uri() . '/css/normalize.css' );
 
 function naked_menu_init() {
   register_nav_menus(
@@ -31,7 +32,13 @@ add_theme_support( "custom-header");
 
  add_theme_support( "custom-background");
 
- add_editor_style();
+function naked_setup() {
+  if ( ! isset( $content_width ) ) $content_width = 900;
+}
+add_action( 'after_setup_theme', 'naked_setup' );
+
+
+add_editor_style();
 
 add_action( 'widgets_init', 'naked_widgets_init' );
 function naked_widgets_init() {
