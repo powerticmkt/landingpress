@@ -1,10 +1,10 @@
 <?php
 /*
-Theme Name: Elementor Landing Page
+Theme Name: Elementor Puzzle
 Theme URI: https://luizeof.com.br
 Author: luizeof
 Author URI: http://luizeof.com.br
-Description: Elementor Naked Theme for Landing Pages
+Description: Elementor Puzzle Theme for Landing Pages and Websites
 Version: 1.0.0
 License: GNU General Public License
 */
@@ -24,13 +24,13 @@ add_action( 'init', 'naked_menu_init' );
 
 add_theme_support( 'automatic-feed-links' );
 
-add_theme_support( 'title-tag' );
+//add_theme_support( 'title-tag' );
 
 add_theme_support( "post-thumbnails" );
 
-add_theme_support( "custom-header");
+//add_theme_support( "custom-header");
 
- add_theme_support( "custom-background");
+//add_theme_support( "custom-background");
 
 function naked_setup() {
   if ( ! isset( $content_width ) ) $content_width = 900;
@@ -61,10 +61,10 @@ require 'plugin-update-checker/plugin-update-checker.php';
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
     'https://github.com/luizeof/elementor-landing-page/',
     __FILE__,
-    'elementor-landing-page'
+    'elementor-puzzle'
 );
 $myUpdateChecker->setBranch('master');
 
-
+require_once "customizer.php";
 
 ?>
