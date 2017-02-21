@@ -1,11 +1,11 @@
 <?php
 /*
-Theme Name: Elementor Naked
-Theme URI: https://luizeof.com.br/elementor/utilizando-o-template-elementor-naked-para-landing-pages/
-Author: Luiz Eduardo
+Theme Name: Elementor Landing Page
+Theme URI: https://luizeof.com.br
+Author: luizeof
 Author URI: http://luizeof.com.br
-Description: Elementor Naked Theme
-Version: 0.8.1
+Description: Elementor Naked Theme for Landing Pages
+Version: 1.0.0
 License: GNU General Public License
 */
 
@@ -54,6 +54,16 @@ function naked_widgets_init() {
 
 }
 
+
+
+// Run updater
+require 'plugin-update-checker/plugin-update-checker.php';
+$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+    'https://github.com/luizeof/elementor-landing-page/',
+    __FILE__,
+    'elementor-landing-page'
+);
+$myUpdateChecker->setBranch('master');
 
 
 
