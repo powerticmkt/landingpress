@@ -5,7 +5,7 @@ Theme URI: https://luizeof.com.br
 Author: luizeof
 Author URI: http://luizeof.com.br
 Description: Elementor Puzzle Theme for Landing Pages and Websites
-Version: 1.0.1
+Version: 1.0.2
 License: GNU General Public License
 */
 
