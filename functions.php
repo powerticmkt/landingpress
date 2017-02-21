@@ -10,6 +10,7 @@ License: GNU General Public License
 */
 
 wp_enqueue_style( 'style', get_stylesheet_uri() );
+
 wp_enqueue_style( 'normalize', get_template_directory_uri() . '/css/normalize.css' );
 
 function naked_menu_init() {
@@ -37,7 +38,6 @@ function naked_setup() {
 }
 add_action( 'after_setup_theme', 'naked_setup' );
 
-
 add_editor_style();
 
 add_action( 'widgets_init', 'naked_widgets_init' );
@@ -51,10 +51,7 @@ function naked_widgets_init() {
   	    'before_title'  => '<h2 class="widgettitle">',
   	    'after_title'   => '</h2>',
     ) );
-
 }
-
-
 
 // Run updater
 require 'plugin-update-checker/plugin-update-checker.php';
