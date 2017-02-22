@@ -7,16 +7,16 @@
 	</head>
 	<body <?php body_class(); ?> >
 
-		<?php if (get_theme_mod('pzl_menu_position') == 'Before') : ?>
-			<?php echo do_shortcode( get_theme_mod("pzl_menu_shortcode") ); ?>
+		<?php if (get_theme_mod('pzl_hmenu_position') == 'Before') : ?>
+			<?php echo do_shortcode( get_theme_mod("pzl_hmenu_shortcode") ); ?>
 		<?php endif; ?>
 
 		<?php if (get_theme_mod('pzl_head_show') == 'Yes') : ?>
 			<?php echo do_shortcode( get_theme_mod("pzl_head_shortcode") ); ?>
 		<?php endif; ?>
 
-		<?php if (get_theme_mod('pzl_menu_position') == 'After') : ?>
-			<?php echo do_shortcode( get_theme_mod("pzl_menu_shortcode") ); ?>
+		<?php if (get_theme_mod('pzl_hmenu_position') == 'After') : ?>
+			<?php echo do_shortcode( get_theme_mod("pzl_hmenu_shortcode") ); ?>
 		<?php endif; ?>
 
 		<div <?php post_class(); ?> >
