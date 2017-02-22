@@ -82,7 +82,7 @@
     /* Header Menu Shortcode
     -------------------------------------------------------- */
     function elementor_puzzle_footer_menu_custom($wp_customize){
-        $wp_customize->add_section('elementor_pzl_hmenu', array(
+        $wp_customize->add_section('elementor_pzl_fmenu', array(
             'title'     => __('Website Footer Menu', 'elementor-puzzle'),
             'priority'  => 140
         ));
