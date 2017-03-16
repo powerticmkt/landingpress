@@ -17,7 +17,7 @@
             'section'   => 'elementor_pzl_header',
             'settings'  => 'pzl_head_show',
             'type'      => 'select',
-            'choices'   => array('No' => 'Não', 'Yes' => 'Sim')
+            'choices'   => array('No' => __('No', 'elementor-puzzle'), 'Yes' => __('Yes', 'elementor-puzzle'))
         )));
         // Shortcode do Header
         $wp_customize->add_setting('pzl_head_shortcode', array(
@@ -79,7 +79,40 @@
 
 
 
-    /* Header Menu Shortcode
+    /* Footer Shortcode
+    -------------------------------------------------------- */
+    function elementor_puzzle_footer_custom($wp_customize){
+        $wp_customize->add_section('elementor_pzl_footer', array(
+            'title'     => __('Footer', 'elementor-puzzle'),
+            'priority'  => 140
+        ));
+        // Exibir Footer?
+        $wp_customize->add_setting('pzl_footer_show', array(
+            'default'   => 'No',
+            'priority'  => 1
+        ));
+        $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'pzl_footer_show', array(
+            'label'     => __('Show Footer?', 'elementor-puzzle'),
+            'section'   => 'elementor_pzl_footer',
+            'settings'  => 'pzl_head_footer',
+            'type'      => 'select',
+            'choices'   => array('No' => __('No', 'elementor-puzzle'), 'Yes' => __('Yes', 'elementor-puzzle'))
+        )));
+        // Shortcode do Footer
+        $wp_customize->add_setting('pzl_footer_shortcode', array(
+            'default'   => '',
+            'priority'  => 4
+        ));
+        $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'pzl_footer_shortcode', array(
+            'label'     => __('Footer Shortcode', 'elementor-puzzle'),
+            'section'   => 'elementor_pzl_footer',
+            'settings'  => 'pzl_footer_shortcode'
+        )));
+    }
+    add_action( 'customize_register', 'elementor_puzzle_footer_custom' );
+
+
+    /* Footer Menu Shortcode
     -------------------------------------------------------- */
     function elementor_puzzle_footer_menu_custom($wp_customize){
         $wp_customize->add_section('elementor_pzl_fmenu', array(
@@ -122,36 +155,3 @@
         )));
     }
     add_action( 'customize_register', 'elementor_puzzle_footer_menu_custom' );
-
-
-    /* Footer Shortcode
-    -------------------------------------------------------- */
-    function elementor_puzzle_footer_custom($wp_customize){
-        $wp_customize->add_section('elementor_pzl_footer', array(
-            'title'     => __('Footer', 'elementor-puzzle'),
-            'priority'  => 140
-        ));
-        // Exibir Header?
-        $wp_customize->add_setting('pzl_footer_show', array(
-            'default'   => 'No',
-            'priority'  => 1
-        ));
-        $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'pzl_footer_show', array(
-            'label'     => __('Show Footer?', 'elementor-puzzle'),
-            'section'   => 'elementor_pzl_footer',
-            'settings'  => 'pzl_head_footer',
-            'type'      => 'select',
-            'choices'   => array('No' => 'Não', 'Yes' => 'Sim')
-        )));
-        // Shortcode do Header
-        $wp_customize->add_setting('pzl_footer_shortcode', array(
-            'default'   => '',
-            'priority'  => 4
-        ));
-        $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'pzl_footer_shortcode', array(
-            'label'     => __('Footer Shortcode', 'elementor-puzzle'),
-            'section'   => 'elementor_pzl_footer',
-            'settings'  => 'pzl_footer_shortcode'
-        )));
-    }
-    add_action( 'customize_register', 'elementor_puzzle_footer_custom' );
