@@ -5,9 +5,11 @@ Theme URI: https://luizeof.com.br
 Author: luizeof
 Author URI: http://luizeof.com.br
 Description: Elementor Puzzle Theme for Landing Pages and Websites
-Version: 1.1.4
+Version: 1.1.5
 License: GNU General Public License
 */
+
+require_once "customizer.php";
 
 wp_enqueue_style( 'style', get_stylesheet_uri() );
 
@@ -35,7 +37,5 @@ $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
     'elementor-puzzle'
 );
 $myUpdateChecker->setBranch('master');
-
-require_once "customizer.php";
 
 ?>

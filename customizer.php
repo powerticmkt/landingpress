@@ -50,7 +50,7 @@
             'section'   => 'elementor_pzl_hmenu',
             'settings'  => 'pzl_hmenu_show',
             'type'      => 'select',
-            'choices'   => array('No' => __('No', 'elementor-puzzle'), 'Yes' => __('Yes', 'elementor-puzzle'))
+            'choices'   => array('No' => 'No','Yes' => 'Yes')
         )));
         // Shortcode do Header Menu
         $wp_customize->add_setting('pzl_hmenu_shortcode', array(
@@ -72,7 +72,7 @@
             'section'   => 'elementor_pzl_hmenu',
             'settings'  => 'pzl_hmenu_position',
             'type'      => 'select',
-            'choices'   => array('Before' => __('Before Header', 'elementor-puzzle'), 'After' => __('After Header', 'elementor-puzzle'))
+            'choices'   => array( 'Before' => 'Before Header', 'After' => 'After Header')
         )));
     }
     add_action( 'customize_register', 'elementor_puzzle_header_menu_custom' );
@@ -96,7 +96,7 @@
             'section'   => 'elementor_pzl_footer',
             'settings'  => 'pzl_footer_show',
             'type'      => 'select',
-            'choices'   => array('No' => __('No', 'elementor-puzzle'), 'Yes' => __('Yes', 'elementor-puzzle'))
+            'choices'   => array('No' => 'No', 'Yes' => 'Yes')
         )));
         // Shortcode do Footer
         $wp_customize->add_setting('pzl_footer_shortcode', array(
@@ -129,7 +129,7 @@
             'section'   => 'elementor_pzl_fmenu',
             'settings'  => 'pzl_fmenu_show',
             'type'      => 'select',
-            'choices'   => array('No' => __('No', 'elementor-puzzle'), 'Yes' => __('Yes', 'elementor-puzzle'))
+            'choices'   => array( 'No' => 'No', 'Yes' => 'Yes' )
         )));
         // Shortcode do Footer Menu
         $wp_customize->add_setting('pzl_fmenu_shortcode', array(
@@ -151,7 +151,7 @@
             'section'   => 'elementor_pzl_fmenu',
             'settings'  => 'pzl_fmenu_position',
             'type'      => 'select',
-            'choices'   => array('Before' => __('Before Footer', 'elementor-puzzle'), 'After' => __('After Footer', 'elementor-puzzle'))
+            'choices'   => array('Before' => 'Before Footer', 'After' => 'After Footer')
         )));
     }
     add_action( 'customize_register', 'elementor_puzzle_footer_menu_custom' );
