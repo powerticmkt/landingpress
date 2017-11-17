@@ -1,6 +1,6 @@
-# Elementor Puzzle
+# LandingPress
 
-Este é um template extremamente simples e livre de qualquer formatação para ser usado com o plugin Elementor (http://www.elementor.com) para a criação de Landing Pages.
+Este é um template extremamente simples e livre de qualquer formatação para ser usado com o plugin Elementor (http://www.elementor.com) para a criação de Landing Pages e Websites.
 
 Este template comporta 4 seções do seu website ou landing page:
 

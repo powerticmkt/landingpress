@@ -18,6 +18,8 @@ From the users' perspective, it works just like with plugins and themes hosted o
     - [Notes](#notes-1)
   - [BitBucket Integration](#bitbucket-integration)
     - [How to Release an Update](#how-to-release-an-update-2)
+  - [GitLab Integration](#gitlab-integration)
+    - [How to Release an Update](#how-to-release-an-update-3)
 - [Resources](#resources)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -42,7 +44,7 @@ Getting Started
 		}
 		```
 		
-        This is a minimal example that leaves out optional fields. See [this table](https://spreadsheets.google.com/pub?key=0AqP80E74YcUWdEdETXZLcXhjd2w0cHMwX2U1eDlWTHc&authkey=CK7h9toK&hl=en&single=true&gid=0&output=html) for a full list of supported fields and their descriptions.
+        This is a minimal example that leaves out optional fields. See [this table](https://docs.google.com/spreadsheets/d/1eOBbW7Go2qEQXReOOCdidMTf_tDYRq4JfegcO1CBPIs/edit?usp=sharing&authkey=CK7h9toK&output=html) for a full list of supported fields and their descriptions.
 	- Theme example:
 	
 		```json
@@ -59,18 +61,19 @@ Getting Started
 
 	```php
 	require 'path/to/plugin-update-checker/plugin-update-checker.php';
-	$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+	$myUpdateChecker = Puc_v4p3_Factory::buildUpdateChecker(
 		'http://example.com/path/to/details.json',
 		__FILE__,
 		'unique-plugin-or-theme-slug'
 	);
 	```
+	Note: If you're using the Composer autoloader, you don't need to explicitly `require` the library.
 
 #### How to Release an Update
 
 Change the `version` number in the JSON file and make sure that `download_url` points to the latest version. Update the other fields if necessary. Tip: You can use [wp-update-server](https://github.com/YahnisElsts/wp-update-server) to automate this process.
 
-By default, the library will check the specified URL for changes every 12 hours. You can force it to check immediately by clicking the "Check Now" link on the "Plugins" page (it's next to the "Visit plugin site" link). Themes don't get a "check now" link, but you can also trigger an update check like this:
+By default, the library will check the specified URL for changes every 12 hours. You can force it to check immediately by clicking the "Check for updates" link on the "Plugins" page (it's next to the "Visit plugin site" link). Themes don't have that link, but you can also trigger an update check like this:
  
  1. Install [Debug Bar](https://srd.wordpress.org/plugins/debug-bar/).
  2. Click the "Debug" menu in the Admin Bar (a.k.a Toolbar).
@@ -79,7 +82,7 @@ By default, the library will check the specified URL for changes every 12 hours.
 
 #### Notes
 - The second argument passed to `buildUpdateChecker` must be the absolute path to the main plugin file or any file in the theme directory. If you followed the "getting started" instructions, you can just use the `__FILE__` constant.
-- The third argument - i.e. the slug - is optional but recommended. If it's omitted, the update checker will use the name of the main plugin file as the slug (e.g. `my-cool-plugin.php` &rarr; `my-cool-plugin`). This can lead to conflicts if your plugin has a generic file name like `plugin.php`. 
+- The third argument - i.e. the slug - is optional but recommended. In most cases, the slug should be the same as the name of your plugin directory. For example, if your plugin lives in `/wp-content/plugins/my-plugin`, set the slug to `my-plugin`. If the slug is omitted, the update checker will use the name of the main plugin file as the slug (e.g. `my-cool-plugin.php` &rarr; `my-cool-plugin`). This can lead to conflicts if your plugin has a generic file name like `plugin.php`. 
 	
 	This doesn't affect themes because PUC uses the theme directory name as the default slug. Still, if you're planning to use the slug in your own code - e.g. to filter updates or override update checker behaviour - it can be a good idea to set it explicitly. 
 
@@ -90,7 +93,7 @@ By default, the library will check the specified URL for changes every 12 hours.
 
 	```php
 	require 'plugin-update-checker/plugin-update-checker.php';
-	$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+	$myUpdateChecker = Puc_v4p3_Factory::buildUpdateChecker(
 		'https://github.com/user-name/repo-name/',
 		__FILE__,
 		'unique-plugin-or-theme-slug'
@@ -164,7 +167,7 @@ The library will pull update details from the following parts of a release/tag/b
 
 	```php
 	require 'plugin-update-checker/plugin-update-checker.php';
-	$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+	$myUpdateChecker = Puc_v4p3_Factory::buildUpdateChecker(
 		'https://bitbucket.org/user-name/repo-name',
 		__FILE__,
 		'unique-plugin-or-theme-slug'
@@ -172,6 +175,9 @@ The library will pull update details from the following parts of a release/tag/b
 
 	//Optional: If you're using a private repository, create an OAuth consumer
 	//and set the authentication credentials like this:
+	//Note: For now you need to check "This is a private consumer" when
+	//creating the consumer to work around #134:
+	// https://github.com/YahnisElsts/plugin-update-checker/issues/134
 	$myUpdateChecker->setAuthentication(array(
 		'consumer_key' => '...',
 		'consumer_secret' => '...',
@@ -209,6 +215,54 @@ BitBucket doesn't have an equivalent to GitHub's releases, so the process is sli
 	 $updateChecker->setBranch('branch-name');
 	 ```
 	 PUC will periodically check the `Version` header in the main plugin file or `style.css` and display a notification if it's greater than the installed version. Caveat: If you set the branch to `master`, the update checker will still look for tags first.
+
+### GitLab Integration
+
+1. Download [the latest release](https://github.com/YahnisElsts/plugin-update-checker/releases/latest) and copy the `plugin-update-checker` directory to your plugin or theme.
+2. Add the following code to the main plugin file or `functions.php`:
+
+	```php
+	require 'plugin-update-checker/plugin-update-checker.php';
+	$myUpdateChecker = Puc_v4p3_Factory::buildUpdateChecker(
+		'https://gitlab.com/user-name/repo-name/',
+		__FILE__,
+		'unique-plugin-or-theme-slug'
+	);
+
+	//Note: Self-hosted instances of GitLab must be initialized like this:
+	$myUpdateChecker = new Puc_v4p3_Vcs_PluginUpdateChecker(
+		new Puc_v4p3_Vcs_GitLabApi('https://myserver.com/user-name/repo-name/'),
+		__FILE__,
+		'unique-plugin-or-theme-slug'
+	);
+
+	//Optional: If you're using a private repository, specify the access token like this:
+	$myUpdateChecker->setAuthentication('your-token-here');
+
+	//Optional: Set the branch that contains the stable release.
+	$myUpdateChecker->setBranch('stable-branch-name');
+	```
+3. Plugins only: Add a `readme.txt` file formatted according to the [WordPress.org plugin readme standard](https://wordpress.org/plugins/about/readme.txt) to your repository. The contents of this file will be shown when the user clicks the "View version 1.2.3 details" link.
+
+#### How to Release an Update
+
+GitLab doesn't have an equivalent to GitHub's releases, so the process is slightly different. You can use any of the following approaches: 
+	
+- **Tags** 
+	
+	To release version 1.2.3, create a new Git tag named `v1.2.3` or `1.2.3`. That's it.
+	
+	PUC doesn't require strict adherence to [SemVer](http://semver.org/). These are all valid tag names: `v1.2.3`, `v1.2-foo`, `1.2.3_rc1-ABC`, `1.2.3.4.5`. However, be warned that it's not smart enough to filter out alpha/beta/RC versions. If that's a problem, you might want to use GitLab branches instead.
+
+- **Stable branch** 
+	
+	Point the update checker at a stable, production-ready branch: 
+	 ```php
+	 $updateChecker->setBranch('branch-name');
+	 ```
+	 PUC will periodically check the `Version` header in the main plugin file or `style.css` and display a notification if it's greater than the installed version.
+	 
+	 Caveat: If you set the branch to `master` (the default), the update checker will look for recent releases and tags first. It'll only use the `master` branch if it doesn't find anything else suitable.
 
 Resources
 ---------

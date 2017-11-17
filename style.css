@@ -1,86 +1,86 @@
 /*
-Theme Name: Elementor Puzzle
-Theme URI: https://luizeof.com.br
+Theme Name: LandingPress
+Theme URI: https://powertic.com/landing-press
 Author: luizeof
-Author URI: https://luizeof.com.br
-Description: Elementor Puzzle Theme for Landing Pages and Websites
+Author URI: https://powertic.com
+Description: Blank Elementor Theme for Landing Pages and Websites
 Version: 1.1.5
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: elementor-puzzle
-Tags: one-column
+Text Domain: landingpress
+Tags: Blank
 */
 
 /* =Custom Styles
 -------------------------------------------------------------- */
 
-body{}
+body {}
 
-  /* =WordPress Core
+/* =WordPress Core
   -------------------------------------------------------------- */
-  .alignnone {}
 
-  .aligncenter,
-  div.aligncenter {}
+.alignnone {}
 
-  .alignright {}
+.aligncenter, div.aligncenter {}
 
-  .alignleft {}
+.alignright {}
 
-  a img.alignright {}
+.alignleft {}
 
-  a img.alignnone {}
+a img.alignright {}
 
-  a img.alignleft {}
+a img.alignnone {}
 
-  a img.aligncenter {}
+a img.alignleft {}
 
-  .wp-caption {}
+a img.aligncenter {}
 
-  .wp-caption.alignnone {}
+.wp-caption {}
 
-  .wp-caption.alignleft {}
+.wp-caption.alignnone {}
 
-  .wp-caption.alignright {}
+.wp-caption.alignleft {}
 
-  .wp-caption img {}
+.wp-caption.alignright {}
 
-  .wp-caption p.wp-caption-text {}
+.wp-caption img {}
 
-  .sticky{}
+.wp-caption p.wp-caption-text {}
 
-  .gallery-caption{}
+.sticky {}
 
-  .bypostauthor{}
+.gallery-caption {}
 
+.bypostauthor {}
 
+/* Text meant only for screen readers. */
 
-  /* Text meant only for screen readers. */
-  .screen-reader-text {
-  	clip: rect(1px, 1px, 1px, 1px);
-  	position: absolute !important;
-          white-space: nowrap;
-  	height: 1px;
-  	width: 1px;
-  	overflow: hidden;
-  }
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  white-space: nowrap;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
 
-  .screen-reader-text:focus {
-  	background-color: #f1f1f1;
-  	border-radius: 3px;
-  	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
-  	clip: auto !important;
-  	color: #21759b;
-  	display: block;
-  	font-size: 14px;
-  	font-size: 0.875rem;
-  	font-weight: bold;
-  	height: auto;
-  	left: 5px;
-  	line-height: normal;
-  	padding: 15px 23px 14px;
-  	text-decoration: none;
-  	top: 5px;
-  	width: auto;
-  	z-index: 100000; /* Above WP toolbar. */
-  }
+.screen-reader-text:focus {
+  background-color: #f1f1f1;
+  border-radius: 3px;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  clip: auto !important;
+  color: #21759b;
+  display: block;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: bold;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000;
+  /* Above WP toolbar. */
+}

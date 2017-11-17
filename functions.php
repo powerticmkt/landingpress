@@ -13,18 +13,6 @@ require_once "customizer.php";
 
 wp_enqueue_style( 'style', get_stylesheet_uri() );
 
-wp_enqueue_style( 'normalize', get_template_directory_uri() . '/css/normalize.css' );
-
-function naked_menu_init() {
-  register_nav_menus(
-    array(
-      'header-menu' => __( 'Header Menu', 'elementor-naked'),
-      'extra-menu' => __( 'Footer Menu', 'elementor-naked' )
-    )
-  );
-}
-add_action( 'init', 'naked_menu_init' );
-
 add_theme_support( 'title-tag' );
 
 add_theme_support( "post-thumbnails" );
@@ -32,9 +20,9 @@ add_theme_support( "post-thumbnails" );
 // Run updater
 require 'plugin-update-checker/plugin-update-checker.php';
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-    'https://github.com/luizeof/elementor-puzzle/',
+    'https://github.com/powertic/landingpress/',
     __FILE__,
-    'elementor-puzzle'
+    'landingpress'
 );
 $myUpdateChecker->setBranch('master');
 
