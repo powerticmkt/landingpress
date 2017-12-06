@@ -112,6 +112,30 @@
     add_action( 'customize_register', 'elementor_puzzle_footer_custom' );
 
 
+
+    /* Especial Pages Shortcode
+    -------------------------------------------------------- */
+    function elementor_puzzle_special_custom($wp_customize){
+        $wp_customize->add_section('elementor_pzl_special', array(
+            'title'     => __('404 Page', 'elementor-puzzle'),
+            'priority'  => 140
+        ));
+        // Shortcode 404 page
+        $wp_customize->add_setting('pzl_404_shortcode', array(
+            'default'   => '',
+            'priority'  => 4
+        ));
+        $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'pzl_404_shortcode', array(
+            'label'     => __('404 Shortcode', 'elementor-puzzle'),
+            'section'   => 'elementor_pzl_special',
+            'settings'  => 'pzl_404_shortcode'
+        )));
+    }
+    add_action( 'customize_register', 'elementor_puzzle_special_custom' );
+
+
+
+
     /* Footer Menu Shortcode
     -------------------------------------------------------- */
     function elementor_puzzle_footer_menu_custom($wp_customize){
