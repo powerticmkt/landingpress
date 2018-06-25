@@ -20,7 +20,7 @@ add_theme_support( "post-thumbnails" );
 // Run updater
 require 'plugin-update-checker/plugin-update-checker.php';
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-    'https://github.com/powertic/landingpress/',
+    'https://github.com/powerticmkt/landingpress/',
     __FILE__,
     'landingpress'
 );
